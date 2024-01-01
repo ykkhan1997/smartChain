@@ -70,36 +70,36 @@ app.use((err, req, res, next) => {
   });
 });
 app.get(`/`,(req,res,next)=>{
-  res.status(200).json({message:"Hello World"});
+  res.status(200).json("Hello World");
 })
 
 
-let peer; 
-app.get("/blockchain--peer", (req, res, next) => {
-  peer=Math.floor(2000+Math.random()*1000);
-  request("http://localhost:3000/blockchain", (error, response, body) => {
-    const { chain } = JSON.parse(body);
-    blockchain
-      .replaceChain({ chain })
-      .then(() => {
-        res
-          .status(200)
-          .json({
-            message:`http://localhost:${peer}/blockchain/mine`,
-            chain
-          });
-        console.log("Synchronized successfully blockchin with the root note",chain);
-        app.listen(peer,()=>{
-          console.log(`Your local server is running on port ${peer}`)
-        })
-      })
-      .catch((error) => {
-        console.log("Synchronization error", error.message);
-      });
-  });
-});
+// let peer; 
+// app.get("/blockchain--peer", (req, res, next) => {
+//   peer=Math.floor(2000+Math.random()*1000);
+//   request("http://localhost:3000/blockchain", (error, response, body) => {
+//     const { chain } = JSON.parse(body);
+//     blockchain
+//       .replaceChain({ chain })
+//       .then(() => {
+//         res
+//           .status(200)
+//           .json({
+//             message:`http://localhost:${peer}/blockchain/mine`,
+//             chain
+//           });
+//         console.log("Synchronized successfully blockchin with the root note",chain);
+//         app.listen(peer,()=>{
+//           console.log(`Your local server is running on port ${peer}`)
+//         })
+//       })
+//       .catch((error) => {
+//         console.log("Synchronization error", error.message);
+//       });
+//   });
+// });
 let PORT;
-let port=PORT ||3000;
+let port=PORT||3000;
 app.listen(port,()=>{
   console.log(`Your Port is running on port ${port}`);
 })
