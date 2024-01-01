@@ -1,0 +1,31 @@
+export const BASEURL='http://localhost:3000';
+export const navLinks=[
+    {
+        name:"Home",
+        href:"/"
+    },
+    {
+        name:"Blockchain",
+        href:`${BASEURL}/blockchain`
+    },
+    {
+        name:"Blocks",
+        href:"/block"
+    },
+    {
+        name:"MineBlock",
+        href:"/blockmining"
+    },
+    {
+        name:"Transactions",
+        href:"/transactions"
+    },
+    {
+        name:"Wallet",
+        href:"/wallet"
+    },
+    {
+        name:"SmartContract",
+        href:"/smartcontract"
+    }
+]
